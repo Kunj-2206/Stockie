@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const watchlist = document.getElementById('watchlist');
     const stockInfo = document.getElementById('stock-info');
@@ -201,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const removeButton = document
             .createElement('button');
             removeButton
-            .textContent = 'Remove';
+            .textContent = 'Remove from watchlist';
             removeButton
             .classList.add('remove');
             removeButton
