@@ -40,6 +40,18 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.group{
+    padding-left: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.bg{
+    padding-right: 100px;
+    height: 300px;
+    width: 400px;
+}
+
 .watchlist, .stock-details {
     background-color: white;
     padding: 20px;
