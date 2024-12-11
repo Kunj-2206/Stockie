@@ -21,6 +21,19 @@ def index(request):
 def dataset_explore(request):
     return render(request, 'stock/dataset_exp.html')
 
+# View for the home page
+def home_view(request):
+    return render(request, 'stock/home.html')
+
+# View for the dashboard page
+def dashboard_view(request):
+    return render(request, 'stock/dashboard.html')
+
+# View for the risk page
+def risk_view(request):
+    return render(request, 'stock/risk.html')
+
+
 def visualize_stock(request, stock_name):
     """
     Display the visualization of the selected stock.
@@ -34,4 +47,4 @@ def visualize_stock(request, stock_name):
     else:
         context = {'stock_name': stock_name, 'error': 'Visualization not found.'}
 
-    return render(request, 'template/visualize_stock.html', context)
+    return render(request, 'stock/visualize_stock.html', context)

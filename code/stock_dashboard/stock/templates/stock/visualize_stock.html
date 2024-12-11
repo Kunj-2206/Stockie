@@ -1,18 +1,173 @@
+{% load static %} <!-- Add this line at the very top -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Dashboard</title>
+    <title>Stock Predictions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Set grid to 3 columns */
+            gap: 30px; /* Space between grid items */
+            padding: 0;
+        }
+
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item img {
+            max-width: 100%;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .grid-item h3 {
+            margin-top: 15px;
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-    <h1>Stock Dashboard</h1>
-    <ul>
-        {% for stock in stock_list %}
-        <li>
-            <a href="{% url 'visualize_stock' stock %}">{{ stock }}</a>
-        </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h1>Stock Predictions</h1>
+        <div class="grid">
+            <!-- Dynamically load prediction images -->
+            <div class="grid-item">
+                <img src="{% static 'images/Amazon_Price_predictions.jpg' %}" alt="Amazon Predictions">
+                <h3>Amazon Price Predictions</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Apple_Price_predictions.jpg' %}" alt="Apple Predictions">
+                <h3>Apple Price Predictions</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Bitcoin_Price_predictions.jpg' %}" alt="Bitcoin Predictions">
+                <h3>Bitcoin Price Predictions</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Ethereum_Price_predictions.jpg' %}" alt="Ethereum Predictions">
+                <h3>Ethereum Price Predictions</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Gold_Price_predictions.jpg' %}" alt="Gold Predictions">
+                <h3>Gold Price Predictions</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Google_Price_predictions.jpg' %}" alt="Google Predictions">
+                <h3>Google Price Predictions</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Meta_Price_predictions.jpg' %}" alt="Meta Predictions">
+                <h3>Meta Price Predictions</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Microsoft_Price_predictions.jpg' %}" alt="Microsoft Predictions">
+                <h3>Microsoft Price Predictions</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Nvidia_Price_predictions.jpg' %}" alt="Nvidia Predictions">
+                <h3>Nvidia Price Predictions</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Tesla_Price_predictions.jpg' %}" alt="Tesla Predictions">
+                <h3>Tesla Price Predictions</h3>
+            </div>
+        </div>
+
+        <!-- New Section: Actual vs Predicted -->
+        <h2>Actual vs Predicted Stock Prices</h2>
+        <div class="grid">
+            <!-- Dynamically load actual vs predicted images -->
+            <div class="grid-item">
+                <img src="{% static 'images/Amazon_Price_actual_vs_predicted.png' %}" alt="Amazon Actual vs Predicted">
+                <h3>Amazon: Actual vs Predicted</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Apple_Price_actual_vs_predicted.png' %}" alt="Apple Actual vs Predicted">
+                <h3>Apple: Actual vs Predicted</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Bitcoin_Price_actual_vs_predicted.png' %}" alt="Bitcoin Actual vs Predicted">
+                <h3>Bitcoin: Actual vs Predicted</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Ethereum_Price_actual_vs_predicted.png' %}" alt="Ethereum Actual vs Predicted">
+                <h3>Ethereum: Actual vs Predicted</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Gold_Price_actual_vs_predicted.png' %}" alt="Gold Actual vs Predicted">
+                <h3>Gold: Actual vs Predicted</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Google_Price_actual_vs_predicted.png' %}" alt="Google Actual vs Predicted">
+                <h3>Google: Actual vs Predicted</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Meta_Price_actual_vs_predicted.png' %}" alt="Meta Actual vs Predicted">
+                <h3>Meta: Actual vs Predicted</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Microsoft_Price_actual_vs_predicted.png' %}" alt="Microsoft Actual vs Predicted">
+                <h3>Microsoft: Actual vs Predicted</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Nvidia_Price_actual_vs_predicted.png' %}" alt="Nvidia Actual vs Predicted">
+                <h3>Nvidia: Actual vs Predicted</h3>
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'images/Tesla_Price_actual_vs_predicted.png' %}" alt="Tesla Actual vs Predicted">
+                <h3>Tesla: Actual vs Predicted</h3>
+            </div>
+        </div>
+    </div>
+    <footer>
+        © 2024 Stock Dashboard. All rights reserved.
+    </footer>
 </body>
 </html>
